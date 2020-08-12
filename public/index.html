@@ -26,8 +26,26 @@
     -->
     <title>React App</title>
   </head>
+
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script>
+      var Module = {
+        preRun: [
+          function () {
+            console.log("prerun running");
+            Module.FS_createPreloadedFile(
+              "/",
+              "preloaded.xml",
+              "/js/haarcascade_frontalface_default.xml",
+              true,
+              false
+            );
+            console.log("prerun loaded");
+          },
+        ],
+      };
+    </script>
     <div id="root"></div>
     <!--
       This HTML file is a template.
